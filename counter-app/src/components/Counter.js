@@ -42,6 +42,8 @@ export default class Counter extends Component {
     console.log("porps",this.props);
     return (
         <React.Fragment>
+            {/* calling children prop */}
+            {this.props.children}
             {/* dynamic css */}
             <span style={this.styles} className={this.getBadgeClasses()}>{this.formatCount()}</span>
             {/* inline css */}
