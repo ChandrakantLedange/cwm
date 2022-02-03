@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Counter extends Component {
     state ={ 
-        value:this.props.value,
+        value:this.props.counter.value,
         tags:[]
     };
     // constructor
@@ -31,7 +31,7 @@ export default class Counter extends Component {
         // props are read only & state - each component having their own state
         // this.props.value = 30;
         this.setState({
-            value: this.state.value +1
+            value: this.state.value + 1
         })
     }
     //pass event argument there are two ways
@@ -51,7 +51,7 @@ export default class Counter extends Component {
             {/* inline css */}
             <button onClick={()=>this.handleIncrement({id:1})} style={{fontSize:30}} className='btn btn-secondary sm'>Increment</button>
             {/* event handling */}
-            <button className='btn btn-danger sm m-2' onClick={this.props.onDelete}>Delete</button>
+            <button className='btn btn-danger sm m-2' onClick={()=>this.props.onDelete(this.props.counter.id)}>Delete</button>
             {/* short conditional rendering */}
             <br></br>
             {this.state.tags.length === 0 && "Please create new tag"} 
