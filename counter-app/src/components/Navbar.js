@@ -4,11 +4,12 @@ import React from 'react';
 //shortcut key sfc>enter
 
 const Navbar =(props)=>{
-    console.log("Navbar: 5 :", props.totalCount);
+    const {totalCount} = props;
+    console.log("Navbar: 5 :",totalCount);
     return (
         <nav className="navbar navbar-light bg-light">
     <a className="navbar-brand" href="#">Navbar 
-    <span className='badge badge-pill badge-secondary ml-3'>{props.totalCount}</span>
+    <span className='badge badge-pill badge-secondary ml-3'>{totalCount}</span>
     </a>
     </nav>
     );
