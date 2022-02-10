@@ -1,0 +1,16 @@
+//* Lifecycle hooks *//
+There are main three phases
+1.Mount
+  >constructor
+  >render
+  >componenetDidMount
+
+2.Update
+ >render
+ >componenetDidUpdate
+
+3.Unmount
+ >componenetWillUnmount
+
+//apart from above we have other Lifecycle hooks but those rarely used
+//above are the imp and useful
