@@ -4,11 +4,15 @@ export default class Counter extends Component {
 //Updating phase
 //whenever prop and state update this lifecycle will call
 componentDidUpdate(prevProps,prevState){
+  console.log("Counter - componentDidUpdate")
   console.log("prevProps",prevProps);
   console.log("prevState",prevState);
   if(prevProps.counter.value !== this.props.counter.value){
     //Ajax call and get new data from server
   }
+}
+componentWillUnmount(){
+  console.log("Counter - unmount");
 }
 
     // remove state beacause single source of truth
