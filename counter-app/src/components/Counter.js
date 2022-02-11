@@ -47,7 +47,8 @@ export default class Counter extends Component {
     //2.call main method from event with arrow function paasing an argument
 
   render() { 
-    console.log("porps",this.props);
+    console.log("Counter - rendered");
+    // console.log("porps",this.props);
     return (
         <React.Fragment>
             {/* calling children prop */}

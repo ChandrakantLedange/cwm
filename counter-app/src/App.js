@@ -13,6 +13,19 @@ class APP extends Component {
         {id:4,value:0},
     ]
  } 
+//Mouting first step
+ constructor(props){
+  super(props);
+  console.log("App - constructor",this.props);
+  // this.state = this.props.something
+}
+
+//Mouting third step
+//here is the right (ajax call) place to call api or fetch data from the server
+//reason is this will call after component render
+componentDidMount(){
+  console.log("APP - ComponentDidMount");
+}
  handleIncrement=(counter)=>{
     //  console.log("controlled by parent",counter);
     //  spread operator
@@ -37,8 +50,11 @@ class APP extends Component {
          counters
      })
  }
+
+ //render is the second mounting step
   render() { 
-    console.log("APP : 41 :",this.state.counters.length);
+    console.log("APP- rendered");
+    // console.log("APP : 41 :",this.state.counters.length);
     
     return (
       <div className="App">
