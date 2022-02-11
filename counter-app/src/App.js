@@ -35,6 +35,15 @@ componentDidMount(){
      counters[index].value++;
      this.setState({counters});
  }
+ handleDecrement=(counter)=>{
+    //  console.log("controlled by parent",counter);
+    //  spread operator
+     const counters = [...this.state.counters];
+     const index = counters.indexOf(counter);
+     counters[index] = {...counter};
+     counters[index].value--;
+     this.setState({counters});
+ }
  handleDelete=(counterId)=>{
      const counters = this.state.counters.filter(c => c.id !== counterId);
      this.setState({
@@ -66,6 +75,7 @@ componentDidMount(){
         <Counters
         counters={this.state.counters}
         onIncrement={this.handleIncrement}
+        onDecrement={this.handleDecrement}
         onDelete={this.handleDelete}
         onReset={this.handleReset}
         />

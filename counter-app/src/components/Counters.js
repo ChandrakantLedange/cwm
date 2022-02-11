@@ -5,7 +5,7 @@ class Counters extends Component {
     
     render() { 
         console.log("Counters - rendered");
-        const {counters,onReset,onDelete,onIncrement} = this.props;
+        const {counters,onReset,onDelete,onIncrement,onDecrement} = this.props;
         return (
             <div>
                 <button className='btn btn-primary sm m-2' onClick={onReset}>Reset</button>
@@ -14,6 +14,7 @@ class Counters extends Component {
                  key={counter.id} 
                  onDelete={onDelete} 
                  onIncrement={onIncrement} 
+                 onDecrement={onDecrement} 
                  counter={counter}
                  >
                     {/* passing children within component */}
