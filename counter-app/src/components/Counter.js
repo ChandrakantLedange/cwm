@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 
 export default class Counter extends Component {
+//Updating phase
+//whenever prop and state update this lifecycle will call
+componentDidUpdate(prevProps,prevState){
+  console.log("prevProps",prevProps);
+  console.log("prevState",prevState);
+  if(prevProps.counter.value !== this.props.counter.value){
+    //Ajax call and get new data from server
+  }
+}
+
     // remove state beacause single source of truth
     // state ={ 
     //     value:this.props.counter.value,
