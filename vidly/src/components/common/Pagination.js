@@ -3,6 +3,8 @@ import _ from 'lodash'; // _ common convention beacuse lodash is the version of 
 //lodash is the popular javascript library 
 //here we are using lodash to generat array
 
+import PropTypes from 'prop-types'; //used to check type of props
+
 const Pagination = (props) => {
     const {itemsCount,pageSize,currentPage,onPageChange} = props;
     console.log("currentPage",currentPage);
@@ -25,5 +27,11 @@ const Pagination = (props) => {
         </nav>
      );
 }
- 
+
+Pagination.propTypes = {
+    itemsCount:PropTypes.number.isRequired,
+    pageSize:PropTypes.number.isRequired,
+    currentPage:PropTypes.number.isRequired,
+    onPageChange:PropTypes.func.isRequired
+}
 export default Pagination;
