@@ -8,7 +8,7 @@ class Counters extends Component {
         const {counters,onReset,onDelete,onIncrement,onDecrement} = this.props;
         return (
             <div>
-                <button className='btn btn-primary sm m-2' onClick={onReset}>Reset</button>
+                <button className='btn btn-primary sm m-2' style={{display:'flex'}} onClick={onReset}>Reset</button>
                 {counters.map(counter =>
                 <Counter
                  key={counter.id} 
@@ -18,7 +18,7 @@ class Counters extends Component {
                  counter={counter}
                  >
                     {/* passing children within component */}
-                    <h4>Counter #{counter.id}</h4>
+                    {/* <h4>Counter #{counter.id}</h4> */}
                 </Counter> )}
             </div>
         );

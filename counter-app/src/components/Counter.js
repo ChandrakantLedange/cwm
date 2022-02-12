@@ -72,7 +72,7 @@ componentWillUnmount(){
              {/* dynamic css */}
              <span style={this.styles} className={this.getBadgeClasses()}>{this.formatCount()}</span>
           </div>
-          <div className='col'>
+          <div className='col-2'>
               {/* inline css */}
             <button onClick={()=>this.props.onIncrement(this.props.counter)} style={{fontSize:30}} className='btn btn-secondary sm'>+</button>
             <button onClick={()=>this.props.onDecrement(this.props.counter)} style={{fontSize:30}} className='btn btn-secondary sm m-2' disabled={this.props.counter.value === 0 ? 'disabled' : ''}>-</button>
