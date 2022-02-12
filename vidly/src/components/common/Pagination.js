@@ -3,7 +3,7 @@ import _ from 'lodash'; // _ common convention beacuse lodash is the version of 
 //lodash is the popular javascript library 
 //here we are using lodash to generat array
 
-import PropTypes from 'prop-types'; //used to check type of props
+import PropTypes from 'prop-types'; //used to check type of props // npm i prop-types
 
 const Pagination = (props) => {
     const {itemsCount,pageSize,currentPage,onPageChange} = props;
