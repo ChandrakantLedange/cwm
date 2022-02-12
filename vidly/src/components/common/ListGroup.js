@@ -12,5 +12,11 @@ const ListGroup = (props) => {
         </ul>
      );
 }
+
+// Default props // instead of passing as props we use as below
+ListGroup.defaultProps={
+textProperty:"name",
+valueProperty:'_id'
+}
  
 export default ListGroup;
