@@ -64,11 +64,13 @@ export default class Movies extends Component {
                     <div className='col-2'>
                         <ListGroup
                         items={this.state.genres}
+                        textProperty="name"
+                        valueProperty="_id"
                         onItemSelect={this.handleGenreSelect}
                         />
                     </div>
                     <div className='col'>
-                    <p>Showing {MovieCount} movies in the database</p>
+                    <p style={{textAlign:'left'}}>Showing <b>{MovieCount}</b> movies in the database</p>
                     <table className="table">
                         <thead>
                             <tr>
