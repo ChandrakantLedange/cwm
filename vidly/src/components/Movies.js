@@ -5,13 +5,15 @@ import { paginate } from '../utils/Paginate';
 import ListGroup from './common/ListGroup';
 import { getGenres } from '../services/fakeGenreService';
 import MoviesTable from './MoviesTable';
+import _ from 'lodash';
 
 export default class Movies extends Component {
     state = {
         movies: [],
         genres:[],
         currentPage:1,
-        pageSize:4
+        pageSize:4,
+        sortColumn:{path:'title',order:'asc'}
     }
     componentDidMount() {
         const genres = [{_id:"",name:'All Genres'},...getGenres()];
@@ -54,12 +56,22 @@ export default class Movies extends Component {
         })
         console.log("all genre",genre);
     }
+
     handleSort =(path)=>{
-        console.log(path)
+        const sortColumn = {...this.state.sortColumn};
+        if(sortColumn.path === path){
+            sortColumn.order = (sortColumn.order === 'asc')
+            ? 'desc' : 'asc';
+        }else{
+            sortColumn.path = path;
+            sortColumn.order = 'asc';
+        } 
+        this.setState({sortColumn});
     }
     render() {
         const { length: MovieCount } = this.state.movies;
-        const {pageSize,currentPage,movies:allMovies,selectedGenre} = this.state;
+        const {pageSize,currentPage,movies:allMovies,selectedGenre,sortColumn} = this.state;
+
         if (MovieCount === 0) {
             return <p>There are no movies in the database</p>;
         } else {
@@ -68,7 +80,10 @@ export default class Movies extends Component {
         const filtered = selectedGenre && selectedGenre._id
         ? allMovies.filter(m => m.genre._id === selectedGenre._id) 
         : allMovies;
-        const movies = paginate(filtered,currentPage,pageSize);
+
+        const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order]);
+
+        const movies = paginate(sorted,currentPage,pageSize);
 
             return (
                 <div className='row'>
@@ -81,6 +96,7 @@ export default class Movies extends Component {
                     </div>
                     <div className='col'>
                     <p style={{textAlign:'left'}}>Showing <b>{filtered.length}</b> movies in the database</p>
+
                     <MoviesTable
                     movies={movies}
                     onLike={this.handleLike}
